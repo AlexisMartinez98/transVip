@@ -47,6 +47,15 @@ const DialogTitle = React.forwardRef(({ className, ...props }, ref) => (
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
+const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={`text-sm text-gray-500 ${className}`}
+    {...props}
+  />
+))
+DialogDescription.displayName = DialogPrimitive.Description.displayName
+
 export {
   Dialog,
   DialogTrigger,
@@ -54,4 +63,5 @@ export {
   DialogHeader,
   DialogFooter,
   DialogTitle,
+  DialogDescription,
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useVehicles } from "../../contexts/vehicles-context"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "../ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "../ui/dialog"
 import { Button } from "../ui/button"
 import { NumericKeypad } from "./NumericKeypad"
 import { VehicleSpot } from "./VehicleSpot"
@@ -71,16 +71,16 @@ export function VehicleList() {
   if (!currentTerminal) return null
 
   return (
-    <div className="container mx-auto max-w-7xl">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-bold">Andén de móviles</h2>
-        <div className="flex items-center gap-2 bg-gray-100 rounded-full p-1">
+        <h2 className="text-2xl font-bold text-gray-900">Andén de móviles</h2>
+        <div className="flex items-center gap-2 bg-gray-100 rounded-full p-1.5">
           <Button
             variant="ghost"
-            className={`rounded-full px-6 py-2 ${
+            className={`rounded-full px-6 py-2 transition-all ${
               selectedTerminalId === 1 
                 ? 'bg-white text-gray-900 shadow-sm' 
-                : 'text-gray-600 hover:text-gray-900'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
             }`}
             onClick={() => setSelectedTerminalId(1)}
           >
@@ -88,10 +88,10 @@ export function VehicleList() {
           </Button>
           <Button
             variant="ghost"
-            className={`rounded-full px-6 py-2 ${
+            className={`rounded-full px-6 py-2 transition-all ${
               selectedTerminalId === 2 
                 ? 'bg-white text-gray-900 shadow-sm' 
-                : 'text-gray-600 hover:text-gray-900'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
             }`}
             onClick={() => setSelectedTerminalId(2)}
           >
@@ -119,9 +119,12 @@ export function VehicleList() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-center text-xl">
+            <DialogTitle className="text-center text-xl font-semibold">
               Ingrese el ID del móvil
             </DialogTitle>
+            <DialogDescription className="text-center">
+              Ingrese el número identificador del móvil que desea agregar a la posición {selectedSpotId}
+            </DialogDescription>
           </DialogHeader>
           <div className="p-4">
             <NumericKeypad
@@ -145,7 +148,7 @@ export function VehicleList() {
                 Cancelar
               </Button>
               <Button 
-                className="flex-1 h-12 text-lg bg-orange-500 hover:bg-orange-600"
+                className="flex-1 h-12 text-lg bg-orange-500 hover:bg-orange-600 text-white"
                 onClick={handleAddVehicle}
                 disabled={!vehicleId || isLoading}
               >
