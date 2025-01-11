@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { SharedRides } from '../components/shared/SharedRides';
+import { LowFrequencyRides } from '../components/low-frequency/LowFrequencyRides';
 
 export const ViewType = {
   VEHICLES: 'vehicles',
@@ -36,10 +37,12 @@ export function MainContent() {
   switch (activeView) {
     case ViewType.SHARED:
       return <SharedRides />;
+    case ViewType.LOW_FREQUENCY:
+      return <LowFrequencyRides />;
     default:
       return (
         <div className="flex items-center justify-center min-h-[400px]">
-          <p className="text-lg text-gray-500">Vista en construcción</p>
+          <p className="text-lg text-gray-500 dark:text-gray-400">Vista en construcción</p>
         </div>
       );
   }
