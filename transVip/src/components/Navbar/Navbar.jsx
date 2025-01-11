@@ -14,7 +14,7 @@ export function Navbar() {
   const { activeView, setActiveView } = useNavigation();
 
   return (
-    <nav className="bg-white dark:bg-gray-800 transition-colors duration-300 border-b shadow-md shadow-gray-200 border-gray-200 dark:border-gray-700">
+    <nav className="bg-white dark:bg-gray-800 transition-colors duration-300 border-b shadow-md dark:shadow-black shadow-gray-200 border-gray-200 dark:border-gray-700">
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 w-full">
         {navItems.map((item) => {
           const Icon = item.icon;

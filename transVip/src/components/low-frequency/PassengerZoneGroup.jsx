@@ -25,7 +25,7 @@ export function PassengerZoneGroup({
         {passengers.map((passenger) => (
           <div
             key={passenger.id}
-            className="bg-white border-2 border-orange-100 dark:bg-gray-800 rounded-xl p-4 shadow-sm dark:shadow-gray-900/50 flex items-center justify-between gap-4"
+            className="bg-white border-[1px] border-orange-100 dark:border-orange-400 dark:bg-gray-800 rounded-xl p-4 shadow-sm dark:shadow-gray-900/50 flex items-center justify-between gap-4"
           >
             <div className="flex items-center gap-3">
               <div className={`

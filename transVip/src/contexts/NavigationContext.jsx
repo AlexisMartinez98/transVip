@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { SharedRides } from '../components/shared/SharedRides';
 import { LowFrequencyRides } from '../components/low-frequency/LowFrequencyRides';
+import { RoutesView } from '../components/routes/RoutesView';
 
 export const ViewType = {
   VEHICLES: 'vehicles',
@@ -39,6 +40,8 @@ export function MainContent() {
       return <SharedRides />;
     case ViewType.LOW_FREQUENCY:
       return <LowFrequencyRides />;
+    case ViewType.ROUTES:
+      return <RoutesView />;
     default:
       return (
         <div className="flex items-center justify-center min-h-[400px]">
