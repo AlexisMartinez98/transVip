@@ -14,3 +14,5 @@
 	vscode-merge-base = origin/develop
 [branch "feature/navbar"]
 	vscode-merge-base = origin/develop
+	remote = origin
+	merge = refs/heads/feature/navbar

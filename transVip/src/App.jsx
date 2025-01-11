@@ -1,8 +1,8 @@
-
 import { useState } from 'react'
 import { Menu, QrCode } from 'lucide-react'
 import { Navbar } from './components/Navbar/Navbar'
 import { SideMenu } from './components/layout/SideMenu'
+import { MainContent } from './contexts/NavigationContext'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,7 +12,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen  dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
       <header className="bg-orange-600 dark:bg-gray-800 px-4 py-3 flex justify-between items-center shadow-lg sticky top-0 z-50 transition-colors duration-300">
         <div className="flex items-center gap-3">
@@ -28,7 +28,6 @@ function App() {
           <h1 className="text-2xl font-bold text-white">
             Transvip
           </h1>
-     
         </div>
         <button 
           className="text-white hover:bg-orange-700/20 dark:hover:bg-gray-700/20 transition-colors duration-200 p-2 rounded-lg"
@@ -39,6 +38,9 @@ function App() {
       </header>
 
       <Navbar />
+      <main className="flex-1 overflow-y-auto p-4">
+        <MainContent />
+      </main>
       <SideMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
     </div>
   )
